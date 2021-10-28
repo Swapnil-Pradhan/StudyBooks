@@ -13,7 +13,6 @@ caches.open('StudyBooks').then((cache) => cache.addAll([
 'aos.js',
 'Material.woff2',
 'eBooksNSolutions.js',
-'ServiceWorker.js'
 'Close.mp3',
 'eBooksBackground.webp',
 'SolutionsBackgrouns.webp',
