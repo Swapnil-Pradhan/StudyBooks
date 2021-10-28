@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>eBooks</title>
+<meta name="viewport" content="user-scalable=no">
+<link rel="shortcut icon" type="image/png" href="StudyBooks.png">
+<link href='Roboto.css' rel='stylesheet'>
+<link href='Material.css' rel='stylesheet'>
+<link rel="manifest" href="StusyBooks.json">
+<style>
+#loading{
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+background-color: #030027;
+display:flex;
+justify-content: center;
+align-items: center;
+z-index: 5;
+transition: 1s;
+}
+
+.loader{
+display: inline-block;
+width: 99px;
+height: 99px;
+position: relative;
+border: 4px solid white;
+animation: loader 2s infinite ease;
+border-radius: 25%;
+overflow: hidden;
+}
+
+.loader-inner{
+vertical-align: top;
+display: inline-block;
+width: 100%;
+background: orange;
+border-radius: 25%;
+animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader{
+0%{
+transform: rotate(0deg);
+}
+25%{
+transform: rotate(180deg);
+}
+50%{
+transform: rotate(180deg);
+}
+75%{
+transform: rotate(360deg);
+}
+100%{
+transform: rotate(360deg);
+}
+}
+
+@keyframes loader-inner{
+0%{
+height: 0%;
+}
+25%{
+height: 0%;
+}
+50%{
+height: 100%;
+}
+75%{
+height: 100%;
+}
+100%{
+height: 0%;
+}
+}
+
+body{
+background: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),  url(eBooksBackground.webp);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+user-select: none;
+font-family: Roboto;
+}
+
+.scrollTop{
+position: fixed;
+bottom: 90%;
+right: 5%;
+width: 80px;
+height: 80px;
+background-image: url(ScrollToTop.png);
+border-radius: 50%;
+background-size: 175px;
+background-position: center;
+background-repeat: no-repeat;
+cursor: pointer;
+z-index: 100000;
+visibility: hidden;
+opacity: 0;
+transition: 1s;
+}
+
+.scrollTop.visible{
+bottom: 40px;
+visibility: visible;
+opacity: 1;
+}
+
+.Button{
+margin: 2.8%;
+}
+
+#Class6{
+height: 100%;
+width: 100%;
+border-radius: 7px;
+border: 3px solid yellow;
+}
+
+#Class7{
+height: 100%;
+width: 100%;
+border-radius: 7px;
+border: 3px solid yellow;
+}
+
+#Class8{
+height: 100%;
+width: 100%;
+border-radius: 7px;
+border: 3px solid yellow;
+}
+
+#class6{
+font-size: 15em;
+color: white;
+text-shadow: 0 0 9px magenta, 0 0 30px magenta, 0 0 50px magenta, 0 0 99px pink;
+transition: 0.3s;
+float: left;
+}
+
+#class6:active{
+text-shadow: 0 0 9px magenta, 0 0 20px magenta, 0 0 40px magenta, 0 0 55px pink;
+transition: 0.3s;
+}
+
+#class7{
+font-size: 15em;
+color: white;
+text-shadow: 0 0 9px yellowgreen, 0 0 30px yellowgreen, 0 0 50px yellowgreen, 0 0 99px lime;
+transition: 0.3s;
+margin-left: 27.5%;
+}
+
+#class7:active{
+text-shadow: 0 0 9px yellowgreen, 0 0 20px yellowgreen, 0 0 40px yellowgreen, 0 0 55px lime;
+transition: 0.3s;
+}
+
+#class8{
+font-size: 15em;
+color: white;
+text-shadow: 0 0 9px cyan, 0 0 30px cyan, 0 0 50px cyan, 0 0 99px skyblue;
+transition: 0.3s;
+float: right;
+}
+
+#class8:active{
+text-shadow: 0 0 9px cyan, 0 0 20px cyan, 0 0 40px cyan, 0 0 55px skyblue;
+transition: 0.3s;
+}
+
+div img{
+border: 3px solid orange;
+transition: 0.3s;
+}
+
+div img:active{
+opacity: 0.5;
+transition: 0.3s;
+}
+
+#down{
+float: right;
+font-size: 7em;
+animation: down 0.5s infinite alternate;
+margin-right: 9px;
+color: white;
+}
+
+#down:active{
+color: orange;
+}
+
+@keyframes down{
+0%{
+transform: translateY(-20px);
+}
+100%{
+transform: translateY(0px);
+}
+}
+
+#SOLUTIONS{
+margin: 0;
+background: orange;
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+width: 100%;
+z-index: 2;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 1.5);
+line-height: 13px;
+height: 50px;
+padding-bottom: 7px;
+border-radius: 0 0 20px 20px;
+transition: 0.3s;
+overflow: hidden;
+}
+
+#Solutions{
+animation: solution 1.5s 1;
+margin-top: 0;
+position: sticky;
+z-index: 2;
+}
+
+@keyframes solution{
+0%{
+letter-spacing: 3px;
+opacity: 0;
+}
+50%{
+letter-spacing: 7px;
+}
+100%{
+letter-spacing: 0px;
+opacity: 1;
+}
+}
+
+.sidenav{
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 3;
+top: 0;
+left: 0;
+background-image: linear-gradient(#001422, #1e3347);
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+border-radius: 0px 25px 25px 0px;
+}
+
+.sidenav a{
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+display: block;
+transition: 0.5s;
+}
+
+.sidenav .closebtn{
+position: absolute;
+top: 1.5%;
+right: 9px;
+font-size: 50px;
+margin-left: 95%;
+font-weight: bold;
+transition: 0.2s;
+}
+
+.closebtn:active{
+font-weight: normal;
+transition: 0.2s;
+}
+
+@media screen and (max-height: 100%){
+.sidenav{
+padding-top: 15px;
+}
+.sidenav a{
+font-size: 18px;
+}
+}
+
+#menu{
+position: sticky;
+top: 1.5%;
+left: 1.5%;
+z-index: 5;
+opacity: 0;
+}
+
+#nmenu{
+position: sticky;
+top: 1.5%;
+left: 1.5%;
+z-index: 5;
+}
+
+#MENU{
+top: 3%;
+position: absolute;
+z-index: 1;
+left: 9%;
+}
+
+#margin{
+margin-left: 15%;
+margin-top: 9%
+}
+
+#home:active{
+letter-spacing: 3px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+#ebook:active{
+letter-spacing: 3px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+#guide:active{
+letter-spacing: 3px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+#share:active{
+letter-spacing: 3px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+#tab{
+position: absolute;
+bottom: 0px;
+text-align: center;
+background: INDIANred;
+width: 100%;
+left: 0;
+font-family: Times New Roman;
+padding: 3px;
+font-size: 300%;
+color: snow;
+}
+
+#tab i{
+transform: scale(-1, 1);
+}
+
+#tab span{
+background: maroon;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 99px;
+transition: 0.2s;
+}
+
+#tab span:active{
+transition: 0.2s;
+background: INDIANred;
+animation: shadow2 0.5s;
+}
+
+@keyframes shadow2{
+0%{
+box-shadow: 0 0 0 0px rgba(255, 0, 0, 0.5);
+}
+100%{
+box-shadow: 0 0 0 25px rgba(255, 0, 0, 0);
+}
+}
+
+h1{
+font-size: 250%;
+}
+
+#rmenu{
+position: fixed;
+z-index: 3;
+top: 1.5%;
+left: 1.5%;
+}
+
+#blur{
+z-index: 2;
+height: 0;
+width: 0;
+background: rgba(0, 0, 0, 0.8);
+position: fixed;
+top: 0;
+opacity: 0;
+transition: opacity 0.8s;
+pointer-events: none;
+bottom: 0;
+right: 0;
+margin: 0;
+padding: 0;
+}
+
+.material-icons{
+font-size: 100%;
+}
+
+#break{
+position: absolute;
+left: 0;
+}
+
+#app{
+color: #ffeaff;
+border-radius: 25px;
+position: absolute;
+left: 50px;
+}
+
+#other{
+border-radius: 25px;
+margin-top: 75px;
+margin-right: 25px;
+transition: 0.3s;
+overflowY: hidden;
+}
+
+#other a{
+color: white;
+font-size: 300%;
+font-weight: bold;
+float: right;
+}
+
+#other b{
+color: snow;
+font-size: 250%;
+}
+
+#other b:hover{
+color: #b9b9b9;
+}
+
+#other a i:active{
+animation: shadow 0.5s;
+transition: 0.25s;
+background: rgba(125, 196, 225, 0.5);
+color: snow;
+}
+
+#other a i{
+border-radius: 50%;
+transition: 0.25s;
+}
+
+@keyframes shadow{
+0%{
+box-shadow: 0 0 0 0px rgba(125, 196, 225, 0.5);
+}
+100%{
+box-shadow: 0 0 0 50px rgba(125, 196, 225, 0);
+}
+}
+</style>
+
+<link rel="stylesheet" href="aos.css"/>
+
+<script src="eBooksNSolutions.js"></script>
+<script src="ServiceWorker.js"></script>
+</head>
+<body id="body" onload="myFunction()" ontouchstart="swipeStart(event)" ontouchmove="swipeMove(event)" ontouchend="swipeEnd()" onscroll="hideHeading()">
+<div id="loading">
+<span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+<div id="manu" class="sidenav">
+<font color="orange" size="99px"><b id="MENU">MENU</b></font>
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><font color="grey">&#x2715;</font></a>
+<br>
+<hr>
+
+<div id="margin">
+<a href="index.html" id="home"><font size="7" color="white">Home</font></a>
+<br>
+<a href="Solution.html" id="ebook"><font size="7" color="white">Solutions</font></a>
+<br>
+<a href="Guide.html" id="guide"><font size="7" color="white">Guide</font></a>
+<br>
+<a href="javascript:void(0)" onclick="share()" id="share"><font size="7" color="white">Share</font></a>
+<br>
+<hr id="break" color="gold" width="99%" height="9px">
+<br>
+<h1 id="app" onclick="drop()"><i class="material-icons" id="x">phone_android</i> Our Other Apps</h1>
+<br>
+<br>
+<br>
+<div id="other">
+<b>Speedy</b>
+<a href="https://swapnil-pradhan.github.io/Speedy/"><i class="material-icons">open_in_new</i></a>
+<a href="https://swapnil-pradhan.github.io/Speedy/Speedy.apk"><i class="material-icons">download</i></a>
+<br>
+<br>
+<br>
+<b>Search It</b>
+<a href="https://swapnil-pradhan.github.io/Search-It/"><i class="material-icons">open_in_new</i></a>
+<a href="https://swapnil-pradhan.github.io/Search-It/SearchIt.apk"><i class="material-icons">download</i></a>
+<br>
+<br>
+<br>
+<b>Calculator</b>
+<a href="https://swapnil-pradhan.github.io/Calculator/"><i class="material-icons">open_in_new</i></a>
+<a href="https://swapnil-pradhan.github.io/Calculator/Calculator.apk"><i class="material-icons">download</i></a>
+</div>
+<b id="tab">
+<span id="Android" onclick="notab()"><i class="material-icons">logout</i> EXIT</span>
+</b><audio src="Close.mp3" id="support"></audio>
+</div>
+</div>
+<DIV id="blur" onclick="closeNav()"></div>
+<div class="scrollTop" onclick="scrollToTop()"></div>
+
+<DIV id="SOLUTIONS">
+<font color="white" size="50px" onclick="openNav()" id="rmenu">&#9776;</font>
+<font color="white" size="50px" onclick="openNav()" id="menu">&#9776;</font>
+<center>
+<font size="99px" color="white" id="nmenu"><b id="Solutions">E-BOOKS</b></font></center></div>
+
+<div data-aos="zoom-in"><div class="Button">
+<text id="class6" onclick="document.getElementById('Six').scrollIntoView({
+behavior: 'smooth'})">6</text>
+<text id="class7" onclick="document.getElementById('Seven').scrollIntoView({
+behavior: 'smooth'})">7</text>
+<text id="class8" onclick="document.getElementById('Eight').scrollIntoView({
+behavior: 'smooth'})">8</text>
+
+</div>
+				
+<HR SIZE="3"WIDTH="100%"COLOR="orange"></HR>
+
+<h1 align="center" id="Class 6"><font color="magenta" id="Class6"><b id="Six">&nbsp;Class 6&nbsp;</b></font></H1>
+
+<div onclick="scrollToBottom()" id="down"><b>&#8623;</b></div>
+
+<h1><font color="magenta"><br><br>&bull; SCIENCE</font></h1>
+<a href="https://drive.google.com/file/d/182X1cDHnc49I5Qf9XAGo6xYTIq0TvSYB/preview?usp=drivesdk">
+<img src="Science6.jpeg" alt="Science 6" style=width:279px;height:374px;></a> 			
+<h1><font color="magenta"><br><br>&bull; MATHEMATICS</font></h1>
+
+<a href="https://drive.google.com/file/d/17x3PfWbnext0lNMmcL9plmjvW2tsg41T/preview?usp=drivesdk"><img src="Mathematics6.jpeg" alt="Mathematics 6" style=width:279px;height:374px;></a>
+
+</div>										
+<div data-aos="zoom-in">
+<h1><font color="magenta"><br><br>&bull; ENGLISH</font></h1>
+</div>	
+									
+<div data-aos="fade-right"><a href="https://drive.google.com/file/d/17p-YQUXsD-NIErneaPtRW_mv4-YpQkNP/preview?usp=drivesdk"><img src="Honeysuckle.jpg" alt="Honeysuckle" style=width:234px;height:335px;></a>
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/17pH1XNZKwoM91k2Zy49YQbhzVlBa7TLX/preview?usp=drivesdk"><img src="APactWithTheSun.jpeg" alt="A Pact With The Sun" style=width:234px;height:335px;></a>
+</div>																																
+
+<div data-aos="zoom-in">
+<h1><font color="magenta"><br><br>&bull; SOCIAL STUDIES</font></h1></div>
+<div data-aos="fade-right"><a href="https://drive.google.com/file/d/18JCwsNF-I5L8lJF-yeacQMGFYC-vkuX2/preview?usp=drivesdk"><img src="TheEarthOurHabitat.jpeg" alt="The Earth Our Habitat" style=width:279px;height:374px;></a>
+											
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/186IFoaFWSK83DLgwynwzPi1mnk8odd4S/preview?usp=drivesdk"><img src="SocialAndPoliticalLife-I.jpeg" alt="Social And Political Life-I" style=width:279px;height:374px;></a>
+											
+&nbsp;&nbsp<a href="https://drive.google.com/file/d/18JsD7oEOeFGNolt1MKtAroUnCmWeXPDu/preview?usp=drivesdk"><img src="OurPasts-I.jpeg" alt="Our Pasts-I"style=width:279px;height:374px;></a>
+</div>
+
+<div data-aos="zoom-in">										
+<h1><font color="magenta"><br><br>&bull; हिन्दी</font></h1></div>
+
+<div data-aos="fade-right">															
+<a href="https://drive.google.com/file/d/17wKU9vcKuSj3dVjTJ11yYMhU7xIXS92o/preview?usp=drivesdk"><img src="वसंतभाग१.jpg" alt="वसंत भाग १"style=width:234px;height:335px;></a>	
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/1s58U2dhPGpS9IZNtiHcs9sJQ3iH4rMFy/preview?usp=drivesdk"><img src="बालरामकथा.jpg" alt="बाल राम कथा"style=width:234px;height:335px;></a>
+</div>																			
+
+<div data-aos="zoom-in">																			
+<h1>
+<font color="magenta"><br><br>&bull; संस्कृत</font></h1></div>
+<div data-aos="fade-right">	
+<a href="https://drive.google.com/file/d/18JtfMUsVS__NNrkpcDeSbjqBdFmPDfmm/preview?usp=drivesdk"><img src="रूचिराप्रथमोभाग.jpeg" alt="रूचिरा प्रथमो भाग:"style=width:234px;height:335px;></a> 	
+</div>
+<div data-aos="zoom-in">
+<h1><font color="magenta"><br><br>&bull; COMPUTER (IT Planet)</font></h1>
+</div>
+
+<div data-aos="fade-right">
+<a href="https://drive.google.com/file/d/18R8y9IK8QC1vtD4rgzjKd5FybKcJMJ8Y/preview?usp=drivesdk">
+<img src="MyBitsAndBytes6.jpeg" alt="My Bits & Bytes 6" style=width:279px;height:374px;></a>	
+</div>
+
+<div data-aos="zoom-in">
+<HR SIZE="3"WIDTH="100%"COLOR="orange">				
+</HR>
+</div>
+		
+<H1 align="center" id="Class 7">
+<div data-aos="flip-down" id="Seven">				
+<font color="yellowgreen" id="Class7">&nbsp;Class 7&nbsp;</font>
+</div>
+</H1>
+		
+<div data-aos="fade-right">	
+<h1><FONT COLOR="limegreen"><br><br>&bull; SCIENCE</FONT></h1><a href="https://drive.google.com/file/d/191np_A7VQ3zedWLFVJJOGLKbENS0o_Ru/preview?usp=drivesdk"><img src="Science7.jpeg" alt="Science 7" style=width:279px;height:374px;></a>
+</div>			
+
+<div data-aos="zoom-in">
+<h1><FONT COLOR="limegreen"><br><br>&bull; MATHEMATICS</FONT></h1></div>
+
+<div data-aos="fade-right"><a href="https://drive.google.com/file/d/18yo-bhQ_CHlgrruPe-n15eVUvgA1sAjv/preview?usp=drivesdk"><img src="Mathematics7.jpeg" alt="Mathematics 7" style=width:279px;height:374px;></a>
+</div>			
+<div data-aos="zoom-in">			
+<h1><FONT COLOR="limegreen"><br><br>&bull; ENGLISH</FONT></h1>
+</div>
+								
+<div data-aos="fade-right">
+<a href="https://drive.google.com/file/d/18m_IR6csSHZ-1B2L3RXJqZwgYjMNECGk/preview?usp=drivesdk"><img src="Honeycomb.jpeg" alt="Honeycomb" style=width:234px;height:335px;></a>
+				
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/18sazNr6RA-eW_zy-bbdPlpSQfgeZlHoT/preview?usp=drivesdk"><img src="AnAlienHand.jpeg" alt="An Alien Hand" style=width:234px;height:335px;></a>
+</div>	
+			
+
+<div data-aos="zoom-in"><h1><FONT COLOR="limegreen"><br><br>&bull; SOCIAL STUDIES</FONT></h1></div>
+<div data-aos="fade-right">	
+<a href="https://drive.google.com/file/d/1Adzawjkx654nGJxUgA-WRMrvA5Yp6L0U/preview?usp=drivesdk"><img src="OurEnvironment.jpeg" alt="Our Environment"style=width:279px;height:374px;></a>
+
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/1AVSnQQq6ld07JI803f58wrXDUSvVACuA/preview?usp=drivesdk"><img src="SocialAndPoliticalLife-II.jpeg" alt="Social And Political Life-II" style=width:279px;height:374px;></a>
+
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/19awRPs_RKCRQcmUt3P6eZLWaWSz1k8aJ/preview?usp=drivesdk"><img src="OurPasts-II.jpeg" alt="Our PASTS-II" style=width:279px;height:374px;></a>
+</div>
+<div data-aos="zoom-in">
+
+<h1><FONT COLOR="limegreen"><br><br>&bull; हिन्दी</FONT></h1>
+</div>
+
+<div data-aos="fade-right">	<a href="https://drive.google.com/file/d/18vbKJqIEfRoLQmDo0ARXONwOycrorVSR/preview?usp=drivesdk"><img src="वसंतभाग२.jpeg" alt="वसंत भाग २"style=width:234px;height:335px;></a>
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/18xCRz6BwHvgO1SI1Enloo80pelv5hnEd/preview?usp=drivesdk"><img src="बालमहाभारतकथा.jpeg" alt="बाल महाभारत कथा" style=width:234px;height:335px;></a></div>
+
+<div data-aos="zoom-in">
+<h1><FONT COLOR="limegreen"><br><br>&bull; संस्कृत</FONT></h1>
+												
+<div data-aos="fade-right">
+<a href="https://drive.google.com/file/d/1Ag6oyoQtoc5CIH1zK-aQN6kZaW76xZW-/preview?usp=drivesdk"><img src="रुचिरादुतियभाग.jpeg" alt="रुचिरा दुतिय भाग:"style=width:234px;height:335px; id="Eight"></a>
+<div data-aos="zoom-in"><h1><FONT COLOR="limegreen"><br><br>&bull; COMPUTER (IT Planet)</FONT></h1>
+												
+<div data-aos="fade-right">												
+<a href="https://drive.google.com/file/d/1CojarLhU8JbD9xezlbfJZFko9F2pRXBO/preview?usp=drivesdk"><img src="MyBitsAndBytes7.jpeg" alt="My Bits & Bytes 7" style=width:279px;height:374px;></a>
+<font color="black">&nbsp;&nbsp;&nbsp;
+</div>												
+
+<div data-aos="zoom-in">
+<HR SIZE="3"WIDTH="100%"COLOR="orange"></HR>
+</div>
+		
+<H1 align="center">
+<div id="Class 8">
+<div data-aos="flip-down">				
+<font color="cyan" id="Class8">&nbsp;<b>Class 8&nbsp;</b></font>
+</div>
+</H1>
+</div>
+				
+<div data-aos="zoom-in"><h1><FONT COLOR="cyan"><br><br>&bull; SCIENCE</FONT></h1>
+</div>
+				
+<div data-aos="fade-right">
+<A STYLE="text-decoration:none; color:WHITE" HREF="https://drive.google.com/file/d/1EdJ2X3sLbwLbOxwNIZa4hQ0KJDzoWRTT/preview?usp=drivesdk"><img src="Science8.jpeg" alt="Science 8" style=width:279px;height:374px;></a>
+</div>
+
+<div 	data-aos="zoom-in"><h1><FONT COLOR="cyan"><br><br>&bull; MATHEMATICS</FONT></h1>
+</div>
+
+<div data-aos="fade-right">	
+<A STYLE="text-decoration:none; color:black"				HREF="https://drive.google.com/file/d/1FYUY0_qEH7F6JmpcrjndyziRvcjni2su/preview?usp=drivesdk"><img src="Mathematics8.jpeg" alt="Mathematics 8" style=width:279px;height:374px;></a>			
+</div>
+
+				
+<div	data-aos="zoom-in">
+<h1><FONT COLOR="cyan"><br><br>&bull; ENGLISH</FONT></h1>
+</div>
+
+<div data-aos="fade-right">
+<A STYLE="text-decoration:none; color: black"				HREF="https://drive.google.com/file/d/1FdoIuj-BfhRiL8YmnxnDoWnf4izCy8Ny/preview?usp=drivesdk"><img src="Honeydew.jpeg" alt="Honeydew" style=width:234px;height:335px;></a>
+			
+&nbsp;&nbsp;<A STYLE="text-decoration:none; color:WHITE"				HREF="https://drive.google.com/file/d/1Fts0ihBMMjRCG-Cf8Srtw4TXx3fVpu3P/preview?usp=drivesdk"><img src="ItSoHappened.jpeg" alt="It So Happened" style=width:234px;height:335px;></a>
+</div>
+
+<div data-aos="zoom-in">
+
+<h1><FONT COLOR="cyan"><br><br>&bull; SOCIAL STUDIES</FONT></h2>
+</div>		
+
+<div data-aos="fade-right">	
+<A STYLE="text-decoration:none; color:WHITE"				HREF="https://drive.google.com/file/d/1FIkPPPeKBla6P3F3pstOG-bCnXinqbF2/preview?usp=drivesdk"><img src="ResourcesAndDevelopment.jpeg" alt="Resources And Development" style=width:279px;height:374px;></a>
+&nbsp;&nbsp;<A STYLE="text-decoration:none; color:WHITE"				HREF="https://drive.google.com/file/d/1FQvfyN5lvpubAn9PERzVqwBgvC9K32a5/preview?usp=drivesdk"><img src="SocialAndPoliticalLife-III.jpeg" alt="Social And Political Life-III" style=width:279px;height:374px;></a>
+&nbsp;&nbsp;<A STYLE="text-decoration:none; color:WHITE"				HREF="https://drive.google.com/file/d/1FYNgBDCkf2LI-Fx71lB5ZIVoyD__d0AQ/preview?usp=drivesdk"><img src="OurPasts-III.jpeg" alt="Our Pasts-III" style=width:279px;height:374px;></a>
+</div>
+<div data-aos="zoom-in">
+<h1><FONT COLOR="cyan"><br><br>&bull; हिन्दी</FONT></h1>
+</div>
+								
+<div data-aos="fade-right">
+<A HREF="https://drive.google.com/file/d/1FxAka8xLqEcTRQfvvNV2LiWfrPgAmqCb/preview?usp=drivesdk"><img src="वसन्तभाग३.jpeg" alt="वसन्त भाग ३" style=width:234px;height:335px;></a>
+				
+&nbsp;&nbsp;<a href="https://drive.google.com/file/d/1G-zP89Dmq_1K72FheZhBPYCRoXXSDmn7/preview?usp=drivesdk" STYLE="text-decoration:none; color:WHITE"><img src="भारतकीखोज.jpeg" alt="भारत की खोज" style=width:234px;height:335px;></a>
+</div>
+<div data-aos="zoom-in">				
+<h1><FONT COLOR="cyan"><br><br>&bull; संस्कृत</FONT></h1></div>
+					
+<div data-aos="fade-right">
+<A STYLE="text-decoration:none; color:WHITE"				HREF="https://drive.google.com/file/d/1G0Tmm7yn9yzprRLi-7JAzRbSsJn1gbZU/preview?usp=drivesdk"><img src="रुचिरात्रुत्योभाग.jpeg" alt="रुचिरा त्रुत्यो भाग:" style=width:234px;height:335px;></a>
+</div>
+<div data-aos="zoom-in">
+<h1><FONT COLOR="cyan"><br><br>&bull; COMPUTER (IT Planet)</FONT></h1>
+</div>
+
+<div data-aos="fade-right">					
+					<A STYLE="text-decoration:none; color:WHITE"				HREF="https://drive.google.com/file/d/1F6Zh1FtK4pT3PmGMjiYkl3k3-zcqnC4k/preview?usp=drivesdk"><img src="MyBitsAndBytes8.jpg" alt="My Bits & Bytes 8" style=width:279px;height:374px;></a>
+</div>
+<HR SIZE="3"WIDTH="100%"COLOR="#ff9d00"></HR>	
+<script src="aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>
