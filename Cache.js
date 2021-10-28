@@ -49,7 +49,7 @@ caches.open('StudyBooks').then((cache) => cache.addAll([
 'TheEarthOurHabitat.jpeg',
 'APactWithTheSun.jpeg',
 'Honeysuckle.jpg',
-'Mathematics6.jpeg'
+'Mathematics6.jpeg',
 'Science6.jpeg'
 ])),
 );
