@@ -5,19 +5,19 @@
 "name": "Speedy, know your speed.",
 "short_name": "Speedy",
 "start_url": "Solution.html",
-"scope": "/Speedy/",
+"scope": "/",
 "theme_color": "#000018",
 "categories": [
 "utilities"
 ],
 "screenshots": [
 {
-"src": "Testing.jpeg",
+"src": "DownloadPDF.jpeg",
 "sizes": "800x1280",
 "type": "image/jpeg"
 },
 {
-"src": "NoInternet.jpeg",
+"src": "SearchInPDF.jpeg",
 "sizes": "800x1280",
 "type": "image/jpeg"
 }
