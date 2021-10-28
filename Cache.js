@@ -4,7 +4,8 @@ self.addEventListener('install', (e) => {
 e.waitUntil(
 caches.open('StudyBooks').then((cache) => cache.addAll([
 'index.html',
-'रूचिराप्रथमोभाग.jpeg'
+'रूचिराप्रथमोभाग.jpeg',
+'वसंतभाग१.jpg'
 ])),
 );
 });
