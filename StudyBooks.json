@@ -1,74 +1,33 @@
 {
-"background_color": "#03002a",
-"description": "StudyBooks, an app in which you can get all NCERT eBooks and their solutions with your fingertips for free!",
-"display": "fullscreen",
-"name": "Get All NCERT eBooks & Solutions",
-"short_name": "StudyBooks",
-"start_url": "index.html",
-"scope": "https://drive.google.com/",
-"theme_color": "#ff7300",
+"background_color": "#000018",
+"description": "Test your internet download speed.",
+"display": "standalone",
+"name": "Speedy, know your speed.",
+"short_name": "Speedy",
+"start_url": "Solution.html",
+"scope": "/Speedy/",
+"theme_color": "#000018",
 "categories": [
 "utilities"
 ],
 "screenshots": [
 {
-"src": "SearchInPDF.jpeg",
+"src": "Testing.jpeg",
 "sizes": "800x1280",
 "type": "image/jpeg"
 },
 {
-"src": "Guide.jpeg",
-"sizes": "800x1280",
-"type": "image/jpeg"
-},
-{
-"src": "Solution.jpeg",
-"sizes": "800x1280",
-"type": "image/jpeg"
-},
-{
-"src": "eBooks.jpeg",
-"sizes": "800x1280",
-"type": "image/jpeg"
-},
-{
-"src": "DownloadPDF.jpeg",
+"src": "NoInternet.jpeg",
 "sizes": "800x1280",
 "type": "image/jpeg"
 }
 ],
 "icons": [
 {
-"src": "StudyBooks.png",
+"src": "Speedy.png",
 "type": "image/png",
 "sizes": "1536x1536",
 "purpose": "any maskable"
 }
-],
-"shortcuts": [
-{
-"name": "eBooks", 
-"description": "All NCERT eBooks",
-"url": "StudyBooks.html",
-"icons": [
-{
-"src": "StudyBooks.png",
-"type": "image/png",
-"purpose": "any maskable"
-}
 ]
-},
-{
-"name": "Solutions", 
-"description": "All NCERT book's solutions",
-"url": "Solution.html",
-"icons": [
-{
-"src": "Solution.png",
-"type": "image/png",
-"purpose": "any"
-}
-]
-}
-] 
 }
