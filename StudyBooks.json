@@ -5,7 +5,8 @@
 "name": "Get All NCERT eBooks & Solutions",
 "short_name": "StudyBooks",
 "start_url": "index.html",
-"scope": "/StudyBooks/",
+"scope": "https://drive.google.com/",
+#orientation": "potrait",
 "theme_color": "#ff7300",
 "categories": [
 "utilities"
