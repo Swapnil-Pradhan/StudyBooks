@@ -5,7 +5,7 @@ e.waitUntil(
 caches.open('StudyBooks').then((cache) => cache.addAll([
 'index.html',
 'वसंतभाग१.jpg',
-'OurPasts-I'
+'OurPastsI'
 ])),
 );
 });
