@@ -4,7 +4,7 @@ self.addEventListener('install', (e) => {
 e.waitUntil(
 caches.open('StudyBooks').then((cache) => cache.addAll([
 'index.html',
-Guide.html',
+'Guide.html',
 'StudyBooks.html',
 'Solution.html',
 'Roboto.css',
