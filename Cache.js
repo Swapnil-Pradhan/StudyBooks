@@ -3,7 +3,7 @@
 self.addEventListener('install', (e) => {
 e.waitUntil(
 caches.open('StudyBooks').then((cache) => cache.addAll([
-/StudyBooks/
+'/StudyBooks/'
 ])),
 );
 });
