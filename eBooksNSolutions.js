@@ -38,7 +38,6 @@ document.getElementById("blur").style.opacity="1",
 document.getElementById("body").style.overflow="hidden",
 document.getElementById("SOLUTIONS").style.position = "sticky";
 document.getElementById("manu").style.width="50%",
-document.getElementById("down").onclick="null",
 document.getElementById("manu").style.border="4px solid orange",
 document.getElementById("manu").style.height="95%",
 document.getElementById("manu").style.boxShadow="0 0 0 0 rgba(0, 0, 0, 0.5), 4px 6px 13px 0 rgba(0, 0, 0, 1.5)";
@@ -51,7 +50,6 @@ document.getElementById("blur").style.opacity="0",
 document.getElementById("body").style.overflow="auto",
 document.getElementById("manu").style.width="0",
 document.getElementById("SOLUTIONS").style.position = "fixed";
-document.getElementById("down").onclick="scrollToBottom()",
 document.getElementById("manu").style.boxShadow="0",
 document.getElementById("manu").style.border="0";
 }
