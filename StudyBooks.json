@@ -44,6 +44,12 @@
 "type": "image/png",
 "sizes": "1536x1536",
 "purpose": "any"
+},
+{
+"src": "Solution.png",
+"type": "image/png",
+"sizes": "512x512",
+"purpose": "any"
 }
 ],
 "shortcuts": [
