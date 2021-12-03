@@ -40,12 +40,6 @@
 ],
 "icons": [
 {
-"src": "StudyBooks256.png",
-"type": "image/png",
-"sizes": "256x256",
-"purpose": "any maskable"
-},
-{
 "src": "StudyBooks512.png",
 "type": "image/png",
 "sizes": "512x512",
@@ -67,7 +61,7 @@
 {
 "src": "StudyBooks512.png",
 "type": "image/png",
-"purpose": "any maskable"
+"purpose": "any"
 }
 ]
 },
