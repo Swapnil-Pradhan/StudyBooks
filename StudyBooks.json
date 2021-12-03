@@ -40,16 +40,10 @@
 ],
 "icons": [
 {
-"src": "StudyBooks512.png",
+"src": "StudyBooks.png",
 "type": "image/png",
 "sizes": "512x512",
-"purpose": "any maskable"
-},
-{
-"src": "Solution.png",
-"type": "image/png",
-"sizes": "512x512",
-"purpose": "any maskable"
+"purpose": "any"
 }
 ],
 "shortcuts": [
@@ -59,7 +53,8 @@
 "url": "StudyBooks.html",
 "icons": [
 {
-"src": "StudyBooks512.png",
+"src": "StudyBooks.png",
+"sizes": "512x512",
 "type": "image/png",
 "purpose": "any"
 }
@@ -72,6 +67,7 @@
 "icons": [
 {
 "src": "Solution.png",
+"sizes": "512x512",
 "type": "image/png",
 "purpose": "any maskable"
 }
