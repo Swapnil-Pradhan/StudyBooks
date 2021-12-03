@@ -40,13 +40,13 @@
 ],
 "icons": [
 {
-"src": "StudyBooks.png",
+"src": "StudyBooks256.png",
 "type": "image/png",
 "sizes": "256x256",
 "purpose": "any"
 },
 {
-"src": "StudyBooks.png",
+"src": "StudyBooks512.png",
 "type": "image/png",
 "sizes": "512x512",
 "purpose": "any"
