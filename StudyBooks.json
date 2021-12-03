@@ -42,7 +42,7 @@
 {
 "src": "StudyBooks.png",
 "type": "image/png",
-"sizes": "512x512",
+"sizes": "9999x9999",
 "purpose": "any"
 }
 ],
@@ -54,7 +54,7 @@
 "icons": [
 {
 "src": "StudyBooks.png",
-"sizes": "512x512",
+"sizes": "9999x9999",
 "type": "image/png",
 "purpose": "any"
 }
