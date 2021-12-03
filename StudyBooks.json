@@ -72,6 +72,20 @@
 "purpose": "any maskable"
 }
 ]
+},
+{
+"name": "Guide", 
+"description": "Guide for StudyBooks",
+"url": "Guide.html",
+"icons": [
+{
+"src": "Guide.png",
+"sizes": "512x512",
+"type": "image/png",
+"purpose": "any maskable"
 }
-] 
+]
+}
+}
+]
 }
