@@ -43,19 +43,19 @@
 "src": "StudyBooks256.png",
 "type": "image/png",
 "sizes": "256x256",
-"purpose": "any"
+"purpose": "any maskable"
 },
 {
 "src": "StudyBooks512.png",
 "type": "image/png",
 "sizes": "512x512",
-"purpose": "any"
+"purpose": "any maskable"
 },
 {
 "src": "Solution.png",
 "type": "image/png",
 "sizes": "512x512",
-"purpose": "any"
+"purpose": "any maskable"
 }
 ],
 "shortcuts": [
@@ -79,7 +79,7 @@
 {
 "src": "Solution.png",
 "type": "image/png",
-"purpose": "any"
+"purpose": "any maskable"
 }
 ]
 }
